@@ -23,6 +23,7 @@ export default function all() {
            <button /*CV*/ className="h-20 w-[1000px] border border-4 broder-white rounded-xl absolute left-[300px]
              text-white text-3xl font-bold flex justify-center items-center hover:bg-slate-500">
                 CV
+                onClick{()=>{router.push()}}
            </button>
         </div>
     )

@@ -46,7 +46,7 @@ export default function Task2() {
                     <h1 className="text-slate-600 text-md">Settings</h1>
                 </div>
                 <div className="flex justify-center">
-                <p className=" text-xl h-12 w-20 rounded-lg hover:bg-gray-700 hover:text-white bg-gray-500 flex items-center justify-center  " onClick={() => router.back()}>Back</p>
+                <p className=" text-xl h-12 w-20 rounded-lg hover:bg-slate-700 hover:text-black bg-white flex items-center justify-center  " onClick={() => router.back()}>Back</p>
                 </div>
             </div>
         </div>
