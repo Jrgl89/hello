@@ -21,7 +21,6 @@ const data = [
   { id: 18, name: "Undrakh", age:"Age:16", hobby:"basketball", sex:"sex:Male" },
   { id: 19, name: "Ariunbayar", age:"Age:16", hobby:"basketball", sex:"sex:Male" },
 ];
-
 export default function Sfilter() {
     const [grid, setGrid]=useState(false);
     const router = useRouter();
@@ -30,41 +29,40 @@ export default function Sfilter() {
         items.name.toLowerCase().includes(search.toLowerCase()) ||
         items.age.toString().includes(search)
       );
- 
   return (
-
-    <div className="w-full min-h-screen bg-slate-900 px-80">
-              <button onClick={() => setGrid (!grid)}
-                    className="absolute top-5 right-5 px-4 py-2 bg-blue-500 text-white rounded bg-teal-500 hover:bg-blue-500 transition">
-                    {grid ? "Жагсаалт харах руу шилжих" : "Grid view рүү шилжих"}
+    <div className="">
+      <div className="bg-slate-700 h-20 w-screen flex items-center relative space-x-5">
+        <p className="font-bold text-xl text-green-400 pl-10 text-2xl">Our class students</p>
+      <div className="flex absolute right-10">
+        <button onClick={() => setGrid (!grid)}
+                    className="font-semibold px-10 py-2 bg-blue-500 text-white rounded bg-green-400 hover:bg-blue-500">
+                    {grid ? "List" : "Grid"}
                 </button>
-         <p className=" absolute left-5 text-xl h-12 w-20 bg-teal-500   my-4 rounded-lg hover:bg-gray-700 hover:text-white bg-gray-500 flex items-center justify-center  " onClick={() => router.back()}>Back</p>
-      <div className="w-full h-[100px] flex items-center flex-col gap-3 pt-3 ">
-        <p className="font-bold text-xl text-white">Student List</p>
-        <input
-          className="text-white pl-2 flex bg-teal-500 w-[200px] rounded-lg shadow-lg"
+                <input
+          className="text-white hover:shadow-blue-400 flex pl-3 bg-green-400 w-[200px] rounded-lg shadow-lg absolute right-40 top-2"
           type="search"
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <div >
-        <div className={`mt-8 flex flex-col gap-4 ${grid ? "grid grid-cols-2 gap-4 " : ""}`}>{filteredData.length > 0 ? (
+      </div>
+         <div className="w-full min-h-screen bg-slate-900 px-80">
+      <div>
+        <div className={`flex flex-col  ${grid ? "grid grid-cols-4 gap-5 w-full" : "w-[1000px]"}`}>{filteredData.length > 0 ? (
             filteredData.map((data) => (
-                <div className="w-full h-[120px] rounded-lg bg-blue-500 hover:-translate-y-6 duration-700 hover:border-2 hover:drop-shadow-md hover:shadow-white   mt-8 shadow-lg">
+                <div className=" h-[100px] rounded-lg bg-green-500 hover:border-2 hover:drop-shadow-md hover:shadow-blue-600 mt-5 shadow-lg">
                   <p className="text-lg text-white font-bold text-opacity-80 pl-2">{data.name}</p>
                   <div className="flex">
-                  <p className="mt-4 text-xl text-opacity-60 text-white pl-2">{data.age}</p>
-                  <p className="mt-4 text-xl text-opacity-60 text-white pl-2">{data.hobby}</p>
-                  <p className="mt-4 text-xl text-opacity-60 text-white pl-2">{data.sex}</p>
+                  <p className="mt-3 text-xl text-opacity-60 text-white pl-2">{data.age}</p>
+                  <p className="mt-3 text-xl text-opacity-60 text-white pl-2">{data.hobby}</p>
+                  <p className="mt-3 text-xl text-opacity-60 text-white pl-2">{data.sex}</p>
                   </div>
-                 
-                  
                 </div>
 
               ))
-        ): <div className="text-white text-lg">no result for : {search}</div>}</div>
-        
+        ): <div className="text-white text-lg">no result for : {search}</div>}
+        </div>
       </div>
+    </div>
     </div>
   );
 }
