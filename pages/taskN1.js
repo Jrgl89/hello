@@ -26,3 +26,10 @@ export default function TaskN1() {
         </div>
     );
 }
+
+ {data?.touristAttractions?.map((item)=>(
+                <div>
+                    {item?.name}--------{item?.description}
+                </div>
+
+            ))}
