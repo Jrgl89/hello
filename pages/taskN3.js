@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
-export default function Sfilter() {
+export default function taskN3() {
+  const router = useRouter();
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const[grid, setGrid] = useState(false);
@@ -59,10 +61,10 @@ export default function Sfilter() {
   );
 
   return (
-    <   div className="w-full min-h-screen bg-white ">
+    <div className="w-full min-h-screen bg-white ">
       <div className="w-full flex items-center flex-col gap-3 relative">
       <div className="flex justify-between mt-4 mx-8 fixed absolute top-1 right-1">
-            <button className="lg:text-2xl sm:text-lg md:text-xl text-blue-500 underline font-bold border border-black sm:w-[50px] sm:h[25px] md:w-[80px] lg:w-[60px] lg:h-[50px] rounded-lg" onClick={() => setGrid(!grid)}>{grid == false ? "List" : "Grid"}</button>
+            <button className="lg:text-2xl sm:text-lg md:text-xl text-blue-500 underline font-bold border border-black sm:w-[50px] sm:h[25px] md:w-[80px] lg:w-[60px] lg:h-[50px] rounded-lg" onClick={() => setGrid(!grid)}>{grid == false ? "Grid" : "List"}</button>
         </div>
         <p className="font-bold text-xl text-blue-400 ">MONGOL DATA    </p>
         <input
@@ -72,10 +74,10 @@ export default function Sfilter() {
         />
       </div>
       <div className="flex justify-center">
-      <div className={`grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mt-10 ${grid ? "grid md:grid-cols-1 lg:grid-cols-1 w-[-1000px] " : ""}`}>
+      <div className={`grid sm:grid-cols-2 gap-4 mt-10 ${grid ? "grid md:grid-cols-1 lg:grid-cols-1 w-[-1000px] " : "grid md:grid-cols-1 lg:grid-cols-3 w-[-1000px] "}`}>
         {filteredData.length > 0 ? (
           filteredData.map((item) => (
-            <div key={item.name} className="text-black border border-2 border-blue-400 shadow-lg rounded-md p-4">
+            <div key={item.name} className="text-black border border-2 border-blue-400 shadow-lg rounded-md p-4 " onClick={() =>router.push(`/hello/${item.id}`)}>
               <img
                 src={item.images}
                 alt={item.name}
