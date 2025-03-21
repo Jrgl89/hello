@@ -74,7 +74,7 @@ export default function taskN3() {
         />
       </div>
       <div className="flex justify-center">
-      <div className={`grid sm:grid-cols-2 gap-4 mt-10 ${grid ? "grid md:grid-cols-1 lg:grid-cols-1 w-[-1000px] " : "grid md:grid-cols-1 lg:grid-cols-3 w-[-1000px] "}`}>
+      <div className={`grid sm:grid-cols-2 gap-4 mt-10 ${grid ? "grid md:grid-cols-1 lg:grid-cols-1 w-[-1000px]  w-56" : "grid md:grid-cols-1 lg:grid-cols-3 w-[-1000px] "}`}>
         {filteredData.length > 0 ? (
           filteredData.map((item) => (
             <div key={item.name} className="text-black border border-2 border-blue-400 shadow-lg rounded-md p-4 " onClick={() =>router.push(`/hello/${item.id}`)}>
