@@ -5,7 +5,7 @@ export default function taskN3() {
   const router = useRouter();
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
-  const[grid, setGrid] = useState(false);
+  const [grid, setGrid] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,13 +41,13 @@ export default function taskN3() {
         const result_historyFigure = await historyFigure.json();
 
         setData([
-          ...(result_tourist.touristAttractions ),
-          ...(result_clothes.clothes ),
-          ...(result_instruments.instruments ),
-          ...(result_historyTool.historicalTools ),
-          ...(result_ethics.ethnicGroups ),
-          ...(result_province.provinces ),
-          ...(result_historyFigure.historicalFigures ),
+          ...result_tourist.touristAttractions,
+          ...result_clothes.clothes,
+          ...result_instruments.instruments,
+          ...result_historyTool.historicalTools,
+          ...result_ethics.ethnicGroups,
+          ...result_province.provinces,
+          ...result_historyFigure.historicalFigures,
         ]);
       } catch (error) {
         console.log(error);
@@ -57,16 +57,22 @@ export default function taskN3() {
   }, []);
 
   const filteredData = data.filter(
-    (item) => item.name && item.name.toLowerCase().includes(search.toLowerCase())
+    (item) =>
+      item.name && item.name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <div className="w-full min-h-screen bg-white ">
       <div className="w-full flex items-center flex-col gap-3 relative">
-      <div className="flex justify-between mt-4 mx-8 fixed absolute top-1 right-1">
-            <button className="lg:text-2xl sm:text-lg md:text-xl text-blue-500 underline font-bold border border-black sm:w-[50px] sm:h[25px] md:w-[80px] lg:w-[60px] lg:h-[50px] rounded-lg" onClick={() => setGrid(!grid)}>{grid == false ? "Grid" : "List"}</button>
+        <div className="flex justify-between mt-4 mx-8 fixed absolute top-1 right-1">
+          <button
+            className="lg:text-2xl sm:text-lg md:text-xl text-blue-500 underline font-bold border border-black sm:w-[50px] sm:h[25px] md:w-[80px] lg:w-[60px] lg:h-[50px] rounded-lg"
+            onClick={() => setGrid(!grid)}
+          >
+            {grid == false ? "List" : "Grid"}
+          </button>
         </div>
-        <p className="font-bold text-xl text-blue-400 ">MONGOL DATA    </p>
+        <p className="font-bold text-xl text-blue-400 ">MONGOL DATA </p>
         <input
           className="text-black border border-blue-500 w-1/2 p-2 rounded shadow-lg"
           type="search"
@@ -74,29 +80,47 @@ export default function taskN3() {
         />
       </div>
       <div className="flex justify-center">
-      <div className={`grid sm:grid-cols-2 gap-4 mt-10 ${grid ? "grid md:grid-cols-1 lg:grid-cols-1 w-[-1000px]  w-56" : "grid md:grid-cols-1 lg:grid-cols-3 w-[-1000px] "}`}>
-        {filteredData.length > 0 ? (
-          filteredData.map((item) => (
-            <div key={item.name} className="text-black border border-2 border-blue-400 shadow-lg rounded-md p-4 " onClick={() =>router.push(`/hello/${item.id}`)}>
-              <img
-                src={item.images}
-                alt={item.name}
-                className="w-full h-56 object-cover rounded-lg mb-4 border border-red-400"
-              />
-              <p className="text-xl font-bold text-center text-blue-400">{item.name}</p>
-              <p className="text-center">{item.description}</p>
-              {item.address?.country && (
-                <p className="opacity-75 text-center text-red-400">{item.address.country}</p>
-              )}
+        <div
+          className={` mt-10 ${
+            grid
+              ? "flex flex-col w-full m-10 space-y-5"
+              : "grid md:grid-cols-1 lg:grid-cols-3 w-[-1000px] "
+          }`}
+        >
+          {filteredData.length > 0 ? (
+            filteredData.map((item) => (
+              <div
+                key={item.name}
+                className={`text-black border border-2 border-blue-400 shadow-lg rounded-md ${
+                  grid == true ? "flex w-full" : ""
+                } p-4`}
+                onClick={() => router.push(`/hello/${item.id}`)}
+              >
+                <img
+                  src={item.images}
+                  alt={item.name}
+                  className={`w-full h-56 object-cover rounded-lg mb-4 border border-red-400 ${
+                    grid == true ? "h-52 w-52" : ""
+                  }`}
+                />
+                <p className="text-xl font-bold text-center text-blue-400">
+                  {item.name}
+                </p>
+                <p className="text-center">{item.description}</p>
+                {item.address?.country && (
+                  <p className="opacity-75 text-center text-red-400">
+                    {item.address.country}
+                  </p>
+                )}
+              </div>
+            ))
+          ) : (
+            <div className="text-black text-lg col-span-4 text-center">
+              No results found for: <b>{search}</b>
             </div>
-          ))
-        ) : (
-          <div className="text-black text-lg col-span-4 text-center">
-            No results found for: <b>{search}</b>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
     </div>
   );
 }
