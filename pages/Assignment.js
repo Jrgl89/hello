@@ -49,7 +49,7 @@ export default function Sfilter() {
       <div>
         <div className={`flex flex-col  ${grid ? "grid grid-cols-4 gap-5 w-full" : "w-[1000px]"}`}>{filteredData.length > 0 ? (
             filteredData.map((data) => (
-                <div className=" h-[100px] rounded-lg bg-green-500 hover:border-2 hover:drop-shadow-md hover:shadow-blue-600 mt-5 shadow-lg">
+                <div key={data.id} className=" h-[100px] rounded-lg bg-green-500 hover:border-2 hover:drop-shadow-md hover:shadow-blue-600 mt-5 shadow-lg">
                   <p className="text-lg text-white font-bold text-opacity-80 pl-2">{data.name}</p>
                   <div className="flex">
                   <p className="mt-3 text-xl text-opacity-60 text-white pl-2">{data.age}</p>

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-export default function setColorOnClick(){
+export default function SetColorOnClick(){
     const [color, setColor]=useState("");
     return(
         <div className={`flex space-x-4 w-full h-screen bg-${color}-800`}>

@@ -6,7 +6,7 @@ export default function Buuhia(){
                 <div className="h-[56px] w-[1274.05px] absolute left-[75px] flex items-center">
                     <div className="h-[56px] w-[167.47px] flex">
                         <div className="h-[56px] w-[49.57px] bg-white">
-                            <Image src="/logo.svg" width={50} height={50}/>
+                            <Image src="/logo.svg"width={50} height={50} alt="image"/>
                         </div>
                         <div className="h-[56px] w-[119.9px]  flex items-center">
                             <h1 className="pl-4 text-[18px] font-extrabold text-[#4334B4]">Буухиа элч</h1>
@@ -27,7 +27,7 @@ export default function Buuhia(){
                     </div>
                 </div>
             </div>
-            <Image src="/BGG.png" width={50} height={50}/>
+            <Image src="/BGG.png" width={50} height={50} alt=""/>
         </div>
     );
 }

@@ -13,7 +13,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export default function nameCard() {
+export default function NameCard() {
   const [search, setSearch]= useState("");
 
   console.log("search utga-->", search);

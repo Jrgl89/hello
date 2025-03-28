@@ -1,6 +1,6 @@
 import {useState} from "react"; 
 
-export default function search(){
+export default function Search(){
     const [search, setSearch]= useState("");
 
     console.log("search utga-->", search);

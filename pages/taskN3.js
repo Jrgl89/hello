@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-export default function taskN3() {
+export default function TaskN3() {
   const router = useRouter();
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");

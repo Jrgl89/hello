@@ -13,7 +13,7 @@ const userdata = [
    
   ];
 
-export default function nothing() {
+export default function Nothing() {
   const [data, setData] = useState([]);
   const [data1, setData1] = useState("");
   const router=useRouter();
@@ -75,7 +75,7 @@ export default function nothing() {
 <div className="bg-white h-full w-full flex grid xl:grid-cols-4 px-24 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
   
 {filtereduliral5.map((item) => (
-          <div className="border-black border h-98 w-80 rounded-xl px-4 drop-shadow-2xl m-12">
+          <div key={item.id} className="border-black border h-98 w-80 rounded-xl px-4 drop-shadow-2xl m-12">
             <div className="flex justify-center">
             <img src={item.images[0]} className="h-60 w-58  rounded-xl py-4  " />{" "}
             </div>

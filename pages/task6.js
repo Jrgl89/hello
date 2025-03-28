@@ -31,7 +31,7 @@ export default function Sfilter() {
       <div >
         {filteredData.length > 0 ? (
             filteredData.map((data) => (
-                <div className="w-full h-[120px] rounded-lg border border-black mt-2 shadow-lg">
+                <div key={data.id} className="w-full h-[120px] rounded-lg border border-black mt-2 shadow-lg">
                   <p className="text-lg text-black font-bold text-opacity-80 pl-2">{data.name}</p>
                   <p className="mt-4 text-sm text-opacity-40 text-black pl-2">{data.email}</p>
                 </div>
