@@ -1,39 +1,52 @@
-import Image from "next/image";
-import {useState} from "react"; 
-
-
+import { useRouter } from "next/router";
 
 export default function Home() {
-  const [search, setSearch]= useState("");
+  const router = useRouter();
 
-  console.log("search utga-->", search);
+  const buttons = [
+    { name: "Timer", path: "/taskN2", color: "from-red-500 to-yellow-500" },
+    { name: "Colors", path: "/task2", color: "from-green-500 to-blue-500" },
+    { name: "Weather", path: "/task3", color: "from-purple-500 to-pink-500" },
+    { name: "Mongol API", path: "/taskN3", color: "from-orange-500 to-red-600" },
+    { name: "My Class", path: "/class", color: "from-teal-500 to-cyan-500" },
+    { name: "Search", path: "/task6", color: "from-blue-600 to-indigo-600" },
+  ];
+
   return (
-    <div className=" bg-black h-[1500px] w-screen relative">
-      <div className="bg-slate-700 h-20 w-screen flex items-center relative space-x-5">
-      <Image src="/fb.webp" width={50} height={50} className="rounded-xl ml-10" alt=""/>
-      <p className="font-bold text-white text-2xl">Facebook</p>
-      <div className="flex space-x-8 justify-end absolute right-10">
-        <p className="text-white font-bold">Home</p>
-        <p className="text-white font-bold">About</p>
-        <p className="text-white font-bold">Contact</p>
-        <input 
-            type="search"
-            onChange={(test) => setSearch(test.target.value)}
-            className="border-2 border-black rounded"
-            />
-      </div>
-      </div>
-      <div className="flex">
-        <Image src="/mark.png" width={700} height={600} className="rounded-xl absolute left-[150px] top-[250px]" alt=""/>
-      <div className=" h-[400px] w-[600px]  absolute right-[170px] top-[270px]">
-        <p className="text-white font-semibold font-mono italic text-4xl">Mark Elliot Zuckerberg (born White Plains, New York, 1984) is an American who created Facebook when he was still studying computer science.[3] The founding of Facebook made Zuckerberg a billionaire, one of the youngest and richest billionaires of all time according to Forbes.</p>
-      </div>
-      </div>
-      <div className="bg-slate-900 h-64 w-screen absolute bottom-0 ">
-        <div className="h-8 w-32 bg-white rounded-xl flex justify-center items-center text-lg">
-          <p className="text-black font-bold italic">Learn more</p>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white flex flex-col">
+      <header className="bg-gradient-to-r from-purple-700 to-indigo-700 p-8 text-center shadow-md">
+        <h1
+          className="text-4xl font-bold mb-2 cursor-pointer hover:text-purple-300 transition-colors"
+          onClick={() => router.push("/cs")}
+        >
+          Project Dashboard
+        </h1>
+        <p className="text-gray-300">Explore my interactive web projects.</p>
+      </header>
+
+      <main className="flex-grow flex items-center justify-center p-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl w-full">
+          {buttons.map(({ name, path, color }, index) => (
+            <div
+              key={index}
+              className="group relative rounded-2xl overflow-hidden shadow-lg transform transition-transform hover:scale-105"
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-100 transition-opacity duration-300`}></div>
+              <div className={`absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-600 opacity-0 group-hover:opacity-80 transition-opacity duration-300`}></div>
+              <button
+                className="relative w-full h-full p-6 flex items-center justify-center text-xl font-semibold z-10"
+                onClick={() => router.push(path)}
+              >
+                {name}
+              </button>
+            </div>
+          ))}
         </div>
-      </div>
+      </main>
+
+      <footer className="bg-gray-800 p-4 text-center text-gray-400">
+        <p>&copy; {new Date().getFullYear()} My Web Experiments</p>
+      </footer>
     </div>
   );
 }
