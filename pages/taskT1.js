@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
     return(
         <div className="h-[4000px] w-screen bg-white">
 
-            <div className="h-[87px] w-screen bg-white flex items-center">
+            <header className="h-[87px] w-screen bg-white flex items-center">
                 <div className="h-[56px] w-[1220px] flex text-black ml-[110px] relative">
                 <img src="https://www.toki.mn/wp-content/uploads/2022/08/Asset-1@3x.png " className="h-[54px]"/>
                 <div className="w-[427.48px] h-full space-x-8 items-center flex absolute right-0">
@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
                 <p>Хамтран ажиллах</p>
                 </div>
                 </div>
-            </div>
+            </header>
 
 
             <div className="bg-[#fff2d7] h-[830px] w-screen relative ">
@@ -45,7 +45,7 @@ import { useRouter } from "next/router";
                 </div>
             </div>
 
-            <div className="h-screen w-screen flex items-center justify-center relative bg-green-400">
+            <div className="h-screen w-screen flex items-center justify-center relative ">
                 <img src="https://www.toki.mn/wp-content/uploads/2020/06/Artboard-4.png" className="h-[700px]"/>
                 <div className="h-[110px] w-[540px] absolute top-[330px] right-[130px] ">
                 <p className="text-[#ffc63e] text-3xl font-bold">Toki Shop</p>
@@ -54,9 +54,35 @@ import { useRouter } from "next/router";
                 </div>
             </div>
 
-            <div className="h-[300px] w-screen bg-black">
-                <p className="text-[#ffc63e]">Toki апп өдөр бүр танд тусална</p>
+            <div className="h-[450px] w-screen flex justify-center relative bg-gray-50">
+                <div className="h-[120px] w-[740px] absolute top-[100px]">
+                    <p className="text-[#ffc63e] text-4xl font-bold flex justify-center">Toki апп өдөр бүр танд тусална</p>
+                    <div className="mt-6">
+                        <p className="text-gray-700">Toki апп бол хүн бүрийн өдөр тутамд хэрэгтэй бүх үйлчилгээг нэг дор багтаасан таны цаг хугацааг</p>
+                        <p className="text-gray-700 flex justify-center">хэмнэх хялбар, хэрэгтэй аппликейшн юм.</p>
+                    </div>
+
+                </div>
             </div>
+
+            <div className="h-[150px] w-screen bg-[#fff2d7] flex justify-center pt-6">
+                <div className="h-12 w-48 bg-[#ffc63e] rounded-full flex justify-center items-center">
+                    <p className="text-md text-white font-bold">ДАВУУ ТАЛ</p>
+                </div>
+            </div>
+
+            <footer className="h-60 grid grid-cols-3 bg-black">
+                <div className="flex justify-center items-center">
+                    <img src="https://www.toki.mn/wp-content/uploads/2022/08/Asset-1@3x.png" className="h-10"/>
+                </div>
+                <div className="bg-white">
+                    <h1 className="text-gray-500 text-sm">Түгээмэл асуулт</h1>
+                    <h1 className="text-gray-500 text-sm">Сүхбаатар дүүрэг, 8-р хороо, Сэнтрал Тауэр, 8-р давхар</h1>
+                    <h1 className="text-gray-500 text-sm">77074477, 4477</h1>
+                    <h1 className="text-gray-500 text-sm">info@toki.mn</h1>
+                    <h1 className="text-gray-500 text-sm">Copyright © 2022 | Toki.mn</h1>
+                </div>
+            </footer>
 
 
         </div>
