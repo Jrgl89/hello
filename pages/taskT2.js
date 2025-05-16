@@ -74,14 +74,14 @@ export default function TaskT2() {
         <div className="w-[80%] bg-blue-500 rounded-full py-2 text-center font-bold text-lg">Task 4</div>
       </div>
 
-      {/* Main Content */}
+      {/* Main */}
       <div className="w-[80%] p-10">
         <div className="mb-6">
           <h1 className="text-3xl font-bold text-blue-800 mb-4">🛒 Product List</h1>
           <input
             type="search"
             placeholder="Search by name..."
-            className="w-1/2 p-3 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-1/2 p-3 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
@@ -98,7 +98,7 @@ export default function TaskT2() {
             </thead>
             <tbody>
               {filteredData.map((item) => (
-                <tr key={item.id} className="border-b hover:bg-gray-50 transition">
+                <tr key={item.id} className="border-b hover:bg-gray-100 transition">
                   <td className="px-6 py-4 text-gray-900">{item.id}</td>
                   <td className="px-6 py-4 text-gray-900">{item.name}</td>
                   <td className="px-6 py-4 text-gray-900">{item.price}</td>
